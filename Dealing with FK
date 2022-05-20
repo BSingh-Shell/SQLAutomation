@@ -1,0 +1,22 @@
+ 
+
+SELECT * 
+FROM sys.foreign_keys
+WHERE referenced_object_id = object_id('cns_glb_reference.material_type1')
+
+
+SELECT 
+'ALTER TABLE ' +  OBJECT_SCHEMA_NAME(parent_object_id) +
+'.[' + OBJECT_NAME(parent_object_id) + 
+'] NOCHECK CONSTRAINT ' + name
+FROM sys.foreign_keys
+WHERE referenced_object_id = object_id('cns_glb_reference.material_type1')
+
+
+how to deal with FK's / constaints
+Disable? then reenable 
+NOCHECK then CHECK CHECK
+
+
+
+
